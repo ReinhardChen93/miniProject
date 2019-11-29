@@ -1,6 +1,9 @@
 // pages/classic/classic.js
-import {HTTP} from '../../utils/http.js'
-let http = new HTTP()
+import {ClassicModel} from '../../models/classic.js'
+import {LikeModel} from '../../models/like.js'
+
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 Page({
 
   /**
@@ -14,12 +17,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http.requset({
-      url:'/classic/latest',
-      success:(res)=>{
-        console.log(res)
-      }
+    classicModel.getLatest((res)=>{
+      this.setData({
+        classicData:res
+      })
     })
+  },
+ 
+  onLike:function(event){
+    console.log(event)
+    let behavior = event.detail.behavior
+    likeModel.like(behavior,this.data.classic.id)
   },
 
   /**

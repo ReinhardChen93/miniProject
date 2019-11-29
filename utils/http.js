@@ -23,7 +23,8 @@ class HTTP{
         
         let code = res.statusCode.toString()
         if(code.startsWith('2')){
-
+          // 判断是否传入了success的回调函数
+          params.success && params.success(res.data)
         }else{
           let error_code = res.data.error_code
           this._show_error(error_code)
