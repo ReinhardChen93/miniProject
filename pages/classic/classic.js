@@ -10,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    classic:null,
+    latest:true,
+    first:false
   },
 
   /**
@@ -28,6 +30,27 @@ Page({
     console.log(event)
     let behavior = event.detail.behavior
     likeModel.like(behavior,this.data.classic.id)
+  },
+
+  onNext:function(event) {
+    this._updataClassic('next')
+  },
+
+  onPrevious:function(event) {
+    this._updataClassic('previous')
+  },
+
+  _updataClassic:function(nextOrPervious){
+    let index= this.data.classic.index
+    classicModel.getClassic(index, nextOrPervious, (res) => {
+      this.setData({
+        classic: res,
+        latest:classicModel.isLatest(res.index),
+        first:classicModel.isFirst(res.index)
+      })
+      // latestClassic latestIndex currentClassic currentIndex
+      
+    })
   },
 
   /**

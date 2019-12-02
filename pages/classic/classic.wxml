@@ -1,6 +1,9 @@
 <!--pages/classic/classic.wxml-->
-<view class="header">
-  <v-epsoide class="epsoide" index="8"/>
-  <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<view class="container">
+  <view class="header">
+    <v-epsoide class="epsoide" index="8"/>
+    <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+  </view>
+  <v-movie img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
+  <v-navi bind:left="onNext" bind:right="onPrevious" title="{{'美国队长'}}" first="{{first}}" latest="{{latest}}" class="navi"/>
 </view>
-<v-movie img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
