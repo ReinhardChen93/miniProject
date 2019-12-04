@@ -2,8 +2,14 @@
 <view class="container">
   <view class="header">
     <v-epsoide class="epsoide" index="8"/>
-    <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+    <v-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
   </view>
-  <v-movie img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
+  <v-movie wx:if="{{false}}" 
+  img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
+  <v-music wx:if="{{true}}" 
+  src="http://m10.music.126.net/20191204103150/c5f079b6a31215162666fe870c37aee0/yyaac/0052/5458/015d/78f552b6dac27245c70667c51e6077e0.m4a"
+  img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
+  <v-essay wx:if="{{false}}" 
+  img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的"/>
   <v-navi bind:left="onNext" bind:right="onPrevious" title="{{'美国队长'}}" first="{{first}}" latest="{{latest}}" class="navi"/>
 </view>
