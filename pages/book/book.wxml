@@ -1,2 +1,22 @@
-<!--pages/book/book.wxml-->
-<text>pages/book/book.wxml</text>
+<!-- <block wx:for="{{books}}" wx:for-item="itemName">
+    <v-book book="{{itemName}}"/>
+</block> -->
+<!-- for 循环 wx:for -->
+<view wx:if="{{!searching}}" class="container">
+    <view class="header">
+        <view class='box' bind:tap="onSearching">
+            <image src="/images/icon/search.png" />
+            <text>搜索书籍</text>
+        </view>
+    </view>
+    <view class="sub-container">
+        <image bind:tap="onTop" class="head-img" src="/images/book/quality.png" />
+        <view class="books-container">
+            <block wx:key="id" wx:for="{{books}}" wx:for-item="itemName">
+                <v-book book="{{itemName}}" />
+            </block>
+        </view>
+    </view>
+</view>
+
+<v-search more="{{more}}" bind:cancel="onCancel" wx:if="{{searching}}"/>
