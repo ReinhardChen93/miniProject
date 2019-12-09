@@ -22,7 +22,7 @@ Component({
   properties: {
     more: {
       type: String,
-      observer: 'loadMore'
+      observer: 'loadMore' //监听属性变化,触发自定义函数
       // true, true, true,
     }
   },
