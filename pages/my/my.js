@@ -71,6 +71,7 @@ Page({
 
 
   userAuthorized() {
+    //wx.getSetting 可以知道用户是否授权 已授权的话scope.userInfo = true
     wx.getSetting({
       success: data => {
         if (data.authSetting['scope.userInfo']) {
@@ -100,14 +101,15 @@ Page({
   },
 
   onJumpToAbout(event) {
+    console.log('222')
     wx.navigateTo({
-      url: '/pages/about/about',
+      url: `pages/about/about`,
     })
   },
 
   onStudy(event) {
     wx.navigateTo({
-      url: '/pages/course/course',
+      url: 'pages/course/course',
     })
   },
 
@@ -116,7 +118,7 @@ Page({
     const type = event.detail.type
     // wx.navigateTo
     wx.navigateTo({
-      url:`/pages/classic-detail/classic-detail?cid=${cid}&type=${type}`
+      url:`pages/classic-detail/classic-detail?cid=${cid}&type=${type}`
     })
   }
 

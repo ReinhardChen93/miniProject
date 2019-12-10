@@ -2,7 +2,12 @@
 <view class="container">
   <view class="header">
     <v-epsoide class="epsoide" index="8"/>
-    <v-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+    <view class="like-container">
+        <v-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+        <v-button class="share-btn" open-type="share">
+            <image class="share" slot="img" src="/images/icon/share.png" />
+        </v-button>
+    </view>
   </view>
   <v-movie wx:if="{{false}}" 
   img="http://img2.imgtn.bdimg.com/it/u=2725474319,1929724303&fm=26&gp=0.jpg" content="接口挂了随便写的" />
